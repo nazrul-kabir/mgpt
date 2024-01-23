@@ -1,8 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import styles from "./Layout.module.css";
 import Contoso from "../../assets/logo-icon-white.png";
-import { CopyRegular, ShareRegular } from "@fluentui/react-icons";
-import { Dialog, Stack, TextField, ICommandBarStyles, IButtonStyles } from "@fluentui/react";
+import { CopyRegular } from "@fluentui/react-icons";
+import { Dialog, Stack, TextField } from "@fluentui/react";
 import { useContext, useEffect, useState } from "react";
 import { HistoryButton, ShareButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
@@ -52,7 +52,7 @@ const Layout = () => {
                             aria-hidden="true"
                         />
                         <Link to="/" className={styles.headerTitleContainer}>
-                            <h1 className={styles.headerTitle}>Etiqa-rm</h1>
+                            <h1 className={styles.headerTitle}>MayGPT</h1>
                         </Link>
                     </Stack>
                     <Stack horizontal tokens={{ childrenGap: 4 }}>
