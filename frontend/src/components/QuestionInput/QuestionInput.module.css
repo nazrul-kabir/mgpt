@@ -44,7 +44,7 @@
     height: 4px;
     left: 0%;
     bottom: 0%;
-    background: radial-gradient(106.04% 106.06% at 100.1% 90.19%,#0F6CBD 33.63%,#8DDDD8 100%);
+    background: radial-gradient(109.81% 107.82% at 100.1% 90.19%, rgb(255, 197, 0) 33.63%, rgb(255, 214, 107) 70.31%, rgb(255, 224, 158) 100%);
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
 }
