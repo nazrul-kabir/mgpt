@@ -53,6 +53,20 @@ jobs:
           path: |
             release.zip
             !venv/
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16' # adjust if needed
+
+      - name: Install Node.js dependencies
+        run: npm install
+
+      - name: Build front end
+        run: npm run build
+
+      - name: Zip artifact for deployment
+        run: zip release.zip ./* frontend/build/* -r # include frontend build
 
   deploy:
     runs-on: ubuntu-latest
