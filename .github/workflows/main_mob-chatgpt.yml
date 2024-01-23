@@ -49,14 +49,10 @@ jobs:
           node-version: '20' # adjust if needed
 
       - name: Install Node.js dependencies
-        run: cd frontend && npm install && npm run build
+        run: cd frontend && npm install && npm run build && zip release.zip ./* build/* -r
 
-      # - name: Build front end
-      #   run: npm run build
-
-
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* frontend/build/* -r # include frontend build
+      # - name: Zip artifact for deployment
+      #   run: zip release.zip ./* frontend/build/* -r # include frontend build
 
   deploy:
     runs-on: ubuntu-latest
