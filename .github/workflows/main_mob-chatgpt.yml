@@ -66,4 +66,4 @@ jobs:
         with:
           app-name: 'mob-chatgpt'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7F917ECCA330433BB80872214D64E3FA }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_94BDDC601E534F529543077AE0772D80 }}
