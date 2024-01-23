@@ -2,4 +2,5 @@
 # .env
 WebApp.Dockerfile
 WebApp.dockerignore
+WebApp.arm64.Dockerfile
 # frontend/node_modules
