@@ -1,0 +1,24 @@
+.chatButton {
+  right: 20px;
+  z-index: 1000;
+  background: radial-gradient(109.81% 107.82% at 100.1% 90.19%, rgb(255, 197, 0) 33.63%, rgb(255, 214, 107) 70.31%, rgb(255, 224, 158) 100%);
+  border-radius: 4px;
+  color: white; /* Text/icon color */
+  font-size: 16px; /* Adjust as needed */
+  padding: 8px 16px; /* Vertical and horizontal padding */
+  border: none; /* No border */
+  cursor: pointer;
+}
+
+/* Add any additional states like hover or active if needed */
+.chatButton:hover {
+  background: linear-gradient(135deg, rgb(255, 197, 0) 0%, rgb(255, 212, 85) 51.04%, rgb(255, 228, 130) 100%);
+  color: #FFFFFF;
+}
+.chatButton>.ms-Icon{
+  color: white !important;
+}
+
+[data-icon-name="Feedback"] {
+  color: #FFFFFF;
+}

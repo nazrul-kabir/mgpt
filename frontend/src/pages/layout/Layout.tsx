@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from "react";
 import { HistoryButton, ShareButton } from "../../components/common/Button";
 import { AppStateContext } from "../../state/AppProvider";
 import { CosmosDBStatus } from "../../api";
+import ChatFeedbackButton from "../feedback/ChatFeedback";
 
 const Layout = () => {
     const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false);
@@ -60,6 +61,7 @@ const Layout = () => {
                             <HistoryButton onClick={handleHistoryClick} text={appStateContext?.state?.isChatHistoryOpen ? "Hide chat history" : "Show chat history"} />
                         }
                         <ShareButton onClick={handleShareClick} />
+                        <ChatFeedbackButton />
                     </Stack>
 
                 </Stack>
@@ -69,7 +71,6 @@ const Layout = () => {
                 onDismiss={handleSharePanelDismiss}
                 hidden={!isSharePanelOpen}
                 styles={{
-
                     main: [{
                         selectors: {
                             ['@media (min-width: 480px)']: {
