@@ -2,8 +2,9 @@ import { UserInfo, ConversationRequest, Conversation, ChatMessage, CosmosDBHealt
 import { chatHistorySampleData } from "../constants/chatHistory";
 
 const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
+const backendUrl = process.env.REACT_APP_BACKEND_URL || '';
 export async function conversationApi(options: ConversationRequest, abortSignal: AbortSignal): Promise<Response> {
-    const response = await fetch(`${backendUrl}/conversation`, {
+    const response = await fetch("${backendUrl}/conversation", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -18,7 +19,7 @@ export async function conversationApi(options: ConversationRequest, abortSignal:
 }
 
 export async function getUserInfo(): Promise<UserInfo[]> {
-    const response = await fetch(`${backendUrl}/.auth/me`);
+    const response = await fetch('${backendUrl}/.auth/me');
     if (!response.ok) {
         console.log("No identity provider found. Access to chat will be blocked.")
         return [];
@@ -37,7 +38,7 @@ export const fetchChatHistoryInit = (): Conversation[] | null => {
 }
 
 export const historyList = async (offset=0): Promise<Conversation[] | null> => {
-    const response = await fetch(`${backendUrl}/history/list?offset=${offset}`, {
+    const response = await fetch('${backendUrl}/history/list?offset=${offset}', {
         method: "GET",
     }).then(async (res) => {
         const payload = await res.json();
@@ -73,7 +74,7 @@ export const historyList = async (offset=0): Promise<Conversation[] | null> => {
 }
 
 export const historyRead = async (convId: string): Promise<ChatMessage[]> => {
-    const response = await fetch(`${backendUrl}/history/read`, {
+    const response = await fetch("${backendUrl}/history/read", {
         method: "POST",
         body: JSON.stringify({
             conversation_id: convId
@@ -120,7 +121,7 @@ export const historyGenerate = async (options: ConversationRequest, abortSignal:
             messages: options.messages
         })
     }
-    const response = await fetch(`${backendUrl}/history/generate`, {
+    const response = await fetch("${backendUrl}/history/generate", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -138,7 +139,7 @@ export const historyGenerate = async (options: ConversationRequest, abortSignal:
 }
 
 export const historyUpdate = async (messages: ChatMessage[], convId: string): Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/update`, {
+    const response = await fetch("${backendUrl}/history/update", {
         method: "POST",
         body: JSON.stringify({
             conversation_id: convId,
@@ -163,7 +164,7 @@ export const historyUpdate = async (messages: ChatMessage[], convId: string): Pr
 }
 
 export const historyDelete = async (convId: string) : Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/delete`, {
+    const response = await fetch("${backendUrl}/history/delete", {
         method: "DELETE",
         body: JSON.stringify({
             conversation_id: convId,
@@ -188,7 +189,7 @@ export const historyDelete = async (convId: string) : Promise<Response> => {
 }
 
 export const historyDeleteAll = async () : Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/delete_all`, {
+    const response = await fetch("${backendUrl}/history/delete_all", {
         method: "DELETE",
         body: JSON.stringify({}),
         headers: {
@@ -211,7 +212,7 @@ export const historyDeleteAll = async () : Promise<Response> => {
 }
 
 export const historyClear = async (convId: string) : Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/clear`, {
+    const response = await fetch("${backendUrl}/history/clear", {
         method: "POST",
         body: JSON.stringify({
             conversation_id: convId,
@@ -236,7 +237,7 @@ export const historyClear = async (convId: string) : Promise<Response> => {
 }
 
 export const historyRename = async (convId: string, title: string) : Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/rename`, {
+    const response = await fetch("${backendUrl}/history/rename", {
         method: "POST",
         body: JSON.stringify({
             conversation_id: convId,
@@ -262,7 +263,7 @@ export const historyRename = async (convId: string, title: string) : Promise<Res
 }
 
 export const historyEnsure = async (): Promise<CosmosDBHealth> => {
-    const response = await fetch(`${backendUrl}/history/ensure`, {
+    const response = await fetch("${backendUrl}/history/ensure", {
         method: "GET",
     })
     .then(async res => {
@@ -300,7 +301,7 @@ export const historyEnsure = async (): Promise<CosmosDBHealth> => {
 }
 
 export const frontendSettings = async (): Promise<Response | null> => {
-    const response = await fetch(`${backendUrl}/frontend_settings`, {
+    const response = await fetch("${backendUrl}/frontend_settings", {
         method: "GET",
     }).then((res) => {
         return res.json()
@@ -312,7 +313,7 @@ export const frontendSettings = async (): Promise<Response | null> => {
     return response
 }
 export const historyMessageFeedback = async (messageId: string, feedback: string): Promise<Response> => {
-    const response = await fetch(`${backendUrl}/history/message_feedback`, {
+    const response = await fetch("${backendUrl}/history/message_feedback", {
         method: "POST",
         body: JSON.stringify({
             message_id: messageId,
