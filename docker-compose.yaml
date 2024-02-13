@@ -1,11 +1,20 @@
-version: '3.5'
+version: '3.8'
 
 services:
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Frontend.Dockerfile
+    ports:
+      - "80:80"
+    environment:
+      - API_URL=http://backend:5000
+
   backend:
     build:
       context: .
-      dockerfile: WebApp.arm64.Dockerfile
-    container_name: chatgpt
+      dockerfile: backend/Backend.Dockerfile
     ports:
-      - "80:80"
-    restart: always
+      - "5000:80"
+    env_file:
+      - .env
