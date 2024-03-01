@@ -2,12 +2,12 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - mob-chatgpt
+name: Build and deploy Python app to Azure Web App - gorilla-bot
 
 on:
   push:
     branches:
-      - main
+      - gorilla
   workflow_dispatch:
 
 jobs:
@@ -42,17 +42,6 @@ jobs:
           path: |
             release.zip
             !venv/
-      
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20' # adjust if needed
-
-      - name: Install Node.js dependencies
-        run: cd frontend && npm install && npm run build && zip release.zip ./* -r
-
-      # - name: Zip artifact for deployment
-      #   run: zip release.zip ./* frontend/build/* -r # include frontend build
 
   deploy:
     runs-on: ubuntu-latest
@@ -75,6 +64,6 @@ jobs:
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'mob-chatgpt'
+          app-name: 'gorilla-bot'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_94BDDC601E534F529543077AE0772D80 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_63FE08F3FB404980A9FED43C2AE8DE90 }}
